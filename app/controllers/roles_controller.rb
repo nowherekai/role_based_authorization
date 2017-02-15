@@ -19,6 +19,11 @@ class RolesController < ApplicationController
 
   # GET /roles/1/edit
   def edit
+    @permissions = ApplicationPolicy.policies.flat_map do |policy|
+      policy.actions.map do |action, action_desc|
+        [ "#{policy.comment} - #{action_desc}", "#{action}##{policy.resource_name}"]
+      end
+    end
   end
 
   # POST /roles
@@ -69,6 +74,6 @@ class RolesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_params
-      params.require(:role).permit(:name)
+      params.require(:role).permit(:name, permission_values: [])
     end
 end

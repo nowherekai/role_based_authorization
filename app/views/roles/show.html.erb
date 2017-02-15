@@ -4,6 +4,16 @@
   <strong>Name:</strong>
   <%= @role.name %>
 </p>
+<table>
+  <tbody>
+    <% @role.permissions.each do |per| %>
+      <tr>
+        <td><%= per.resource %></td>
+        <td><%= per.action %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_role_path(@role) %> |
 <%= link_to 'Back', roles_path %>
