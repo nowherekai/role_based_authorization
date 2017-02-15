@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.label :role %>
+    <%= f.collection_select :role_ids, Role.all, :id, :name, {selected: f.object.role_ids },  multiple: true %>
   </div>
 
   <div class="actions">
