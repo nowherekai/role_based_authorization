@@ -2,6 +2,7 @@ class PermissionsController < ApplicationController
   # GET /permissions
   # GET /permissions.json
   def index
+    @permissions = ApplicationPolicy.policies
   end
 
   # GET /permissions/1

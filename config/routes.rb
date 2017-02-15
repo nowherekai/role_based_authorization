@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+
   root "users#index"
 
   get :signup, to: "users#new"

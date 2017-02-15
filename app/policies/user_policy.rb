@@ -1,6 +1,6 @@
 class UserPolicy < ApplicationPolicy
   policy do
-    desc "仪表板"
+    desc "用户管理"
     permit :read, "查看"
     permit :update, "修改"
   end

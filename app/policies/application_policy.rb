@@ -2,7 +2,7 @@ class ApplicationPolicy
   class << self
     def policies
       @policies ||= Dir[Rails.root.join("app/policies/*_policy.rb")].map do |file|
-        file.chomp('.rb').camelize.constantize unless file == File.basename(__FILE__)
+        File.basename(file).chomp('.rb').camelize.constantize unless file == File.basename(__FILE__)
       end.compact
     end
 
@@ -20,7 +20,7 @@ class ApplicationPolicy
 
     attr_accessor :comment
     def desc(comment)
-      @comment = name
+      @comment = comment
     end
 
     def resource_name
