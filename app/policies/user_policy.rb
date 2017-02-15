@@ -13,11 +13,7 @@ class UserPolicy < ApplicationPolicy
     read?
   end
 
-  def update?
-    super
-  end
-
-  def edit
+  def edit?
     update?
   end
 

@@ -5,6 +5,10 @@ class DashboardPolicy < ApplicationPolicy
     permit :read, "查看"
   end
 
+  def index?
+    read?
+  end
+
   class Scope < Scope
     def resolve
       scope
