@@ -5,3 +5,4 @@ role based authorization use pundit
 
 ## todo
 [  ] data permision
+treset
